@@ -1,6 +1,6 @@
 :: Starting Parameters
 @echo off & color a & chcp 1254 & mode con: cols=70 lines=7 & title League Of Legends Language Changer & setlocal enabledelayedexpansion & cls
-SET liveincolor=1 & SET "c_underline=[4m" & SET "c_reset=[0m" & SET "c_Red_Blak=[91;40m" & SET "c_Gre_Blak=[92;40m" & SET "c_Yel_Blak=[93;40m" & SET "c_Blu_Blak=[94;40m" & SET "c_Mag_Blak=[95;40m" & SET "c_Cya_Blak=[96;40m" & SET "c_Whi_Blak=[97;40m"
+SET "T_Reset=[0m" & SET "T_Bold=[1m"&SET "T_UnderLine=[4m"&SET "T_Inverse=[7m"&SET "C_Red=[91;40m"&SET "C_Green=[92;40m"&SET "C_Yellow=[93;40m"&SET "C_Blue=[94;40m"&SET "C_Magenta=[95;40m"&SET "C_Cyan=[96;40m"&SET "C_White=[97;40m"
 
 :: Run As Administrator
 >nul reg add hkcu\software\classes\.Admin\shell\runas\command /f /ve /d "cmd /x /d /r set \"f0=%%2\" &call \"%%2\" %%3" &set _= %*
@@ -29,7 +29,7 @@ for /f "skip=3 tokens=1 delims= " %%a in ('Powershell -command "Get-CimInstance 
 )
 cls
 echo.
-echo  %c_Red_Blak%Searching League of Legends Location%c_Gre_Blak%
+echo  %C_Red%Searching League of Legends Location%C_Green%
 set Number=0
 echo.
 FOR /F "tokens=3" %%a in ('Findstr /i "Disk" %temp%\LOLLanguageChanger\Disk 2^>NUL') do (
@@ -66,31 +66,31 @@ DEL /F /S /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Riot Games\%F
 :Language
 mode con: cols=40 lines=28 & cls
 echo.
-echo    %c_Red_Blak%League of Legends Language Changer%c_Gre_Blak%
+echo    %C_Red%League of Legends Language Changer%C_Green%
 echo.
-echo %c_Red_Blak%1)%c_Gre_Blak%  Brazil
-echo %c_Red_Blak%2)%c_Gre_Blak%  Chinese (China)
-echo %c_Red_Blak%3)%c_Gre_Blak%  Chinese (Taiwan)
-echo %c_Red_Blak%4)%c_Gre_Blak%  Czech Republic
-echo %c_Red_Blak%5)%c_Gre_Blak%  English
-echo %c_Red_Blak%6)%c_Gre_Blak%  France
-echo %c_Red_Blak%7)%c_Gre_Blak%  Germany
-echo %c_Red_Blak%8)%c_Gre_Blak%  Greece
-echo %c_Red_Blak%9)%c_Gre_Blak%  Hungary
-echo %c_Red_Blak%10)%c_Gre_Blak% Indonesia
-echo %c_Red_Blak%11)%c_Gre_Blak% Italy
-echo %c_Red_Blak%12)%c_Gre_Blak% Japan
-echo %c_Red_Blak%13)%c_Gre_Blak% Korea
-echo %c_Red_Blak%14)%c_Gre_Blak% Malaysia (Chinese)
-echo %c_Red_Blak%15)%c_Gre_Blak% Malaysia
-echo %c_Red_Blak%16)%c_Gre_Blak% Mexico (Spanish)
-echo %c_Red_Blak%17)%c_Gre_Blak% Poland
-echo %c_Red_Blak%18)%c_Gre_Blak% Romania
-echo %c_Red_Blak%19)%c_Gre_Blak% Russian
-echo %c_Red_Blak%20)%c_Gre_Blak% Spanish
-echo %c_Red_Blak%21)%c_Gre_Blak% Thailand
-echo %c_Red_Blak%22)%c_Gre_Blak% Turkey
-echo %c_Red_Blak%23)%c_Gre_Blak% Vietnam
+echo %C_Red%1)%C_Green%  Brazil
+echo %C_Red%2)%C_Green%  Chinese (China)
+echo %C_Red%3)%C_Green%  Chinese (Taiwan)
+echo %C_Red%4)%C_Green%  Czech Republic
+echo %C_Red%5)%C_Green%  English
+echo %C_Red%6)%C_Green%  France
+echo %C_Red%7)%C_Green%  Germany
+echo %C_Red%8)%C_Green%  Greece
+echo %C_Red%9)%C_Green%  Hungary
+echo %C_Red%10)%C_Green% Indonesia
+echo %C_Red%11)%C_Green% Italy
+echo %C_Red%12)%C_Green% Japan
+echo %C_Red%13)%C_Green% Korea
+echo %C_Red%14)%C_Green% Malaysia (Chinese)
+echo %C_Red%15)%C_Green% Malaysia
+echo %C_Red%16)%C_Green% Mexico (Spanish)
+echo %C_Red%17)%C_Green% Poland
+echo %C_Red%18)%C_Green% Romania
+echo %C_Red%19)%C_Green% Russian
+echo %C_Red%20)%C_Green% Spanish
+echo %C_Red%21)%C_Green% Thailand
+echo %C_Red%22)%C_Green% Turkey
+echo %C_Red%23)%C_Green% Vietnam
 echo.
 Set Lang=
 Set /P Lang= Language Preferance: 
@@ -122,7 +122,7 @@ if %Lang%==22 set lang=tr_TR & goto :Continue
 if %Lang%==23 set lang=vn_VN & goto :Continue
 cls & mode con: cols=40 lines=3
 echo.
-echo    %c_Red_Blak%Invalid Language, Please Try Again%c_Gre_Blak%
+echo    %C_Red%Invalid Language, Please Try Again%C_Green%
 ping 127.0.0.1 -n 3 >Nul 2>&1 & cls
 goto :Language
 
